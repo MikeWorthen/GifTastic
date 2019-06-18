@@ -2,18 +2,30 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>Quoth the Giphy</title>
+    <title>Quoth the Giphy</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
-  <button data-person="baseball">Babe Ruth</button>
-  <button data-person="basketball">Michael Jordan</button>
-  <button data-person="football">Peyton Manning</button>
-  <button data-person="hockey">Wayne Gretzky</button>
+    <div class="container">
+        <div class="row m-5">
+            <button data-person="BabeRuth">Babe Ruth</button>
+            <button data-person="MichaelJordan">Michael Jordan</button>
+            <button data-person="PeytonManning">Peyton Manning</button>
+            <button data-person="WayneGretzky">Wayne Gretzky</button>
+        </div>
+    </div> 
   
-
-  <div id="gifList"></div>
+    <div class="container">
+        <div id="gifList"></div>
+    </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="assets/Javascript/app.js">
+  </script>
+</body>
+</html>
