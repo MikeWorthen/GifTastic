@@ -1,6 +1,13 @@
+body {
+    background-color: gray;
+}
+
 button {
     margin-left: .5rem;
     margin-right: .5rem;
+    margin-bottom: .5rem;
+    border-color: green;
+    color: white;
 }
 
 img {
@@ -10,4 +17,14 @@ img {
     margin-left: .5rem;
     float: left;
 }
+
+#person-input {
+    margin-left: .5rem;
+}
+
+#add-person {
+    border-color: black;
+    color: white;
+}
+
 

@@ -29,7 +29,7 @@ function displayGifs() {
                 $("#button-view").empty();
                 // Looping through the array of people
                 for (var i = 0; i < people.length; i++) {
-                    var a = $("<button>");
+                    var a = $("<button class='bg-success'>");
                     a.addClass("person");
                     a.attr("data-name", people[i]);
                     a.text(people[i]);
