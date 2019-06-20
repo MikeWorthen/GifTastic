@@ -7,7 +7,7 @@ function displayGifs() {
             //API url
             var url =  "https://api.giphy.com/v1/gifs/search?q=" +
             sports + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
-        
+            console.log(url);
             $.ajax({
                 url: url,
                 method: "GET"
@@ -19,8 +19,9 @@ function displayGifs() {
                     var gifImage = $("<img>");
                     gifImage.attr("src", results[i].images.fixed_height.url);
                     gifDiv.append(gifImage);
-                    $("#gifList").prepend(gifDiv);
+                    $("#gifList").prepend(gifDiv);    
                 }
+
               });
             }
 
@@ -42,6 +43,7 @@ function displayGifs() {
                 event.preventDefault();
                 var person = $("#person-input").val().trim();
                 people.push(person);
+                $("#person-input").val("");
                 displayNewButton();
             });
 
@@ -50,6 +52,7 @@ function displayGifs() {
         displayNewButton();
     $("button").on("click", function(){
         displayNewButton();
-    })
+    });
+
 
 
