@@ -16,8 +16,10 @@ function displayGifs() {
                 var results = response.data;
                 for (var i = 0; i < results.length; i++) {
                     var gifDiv = $("<div>");
+                    // var p = $("<p>").text("Rating: " + results[i].rating);
                     var gifImage = $("<img>");
                     gifImage.attr("src", results[i].images.fixed_height.url);
+                    // gifDiv.append(p);
                     gifDiv.append(gifImage);
                     $("#gifList").prepend(gifDiv);    
                 }
