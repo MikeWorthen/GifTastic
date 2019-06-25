@@ -1,5 +1,5 @@
 
-var people = ["Michael Jordan", "LeBron James", "Mike Trout", "Tom Brady"];
+var people = ["Michael Jordan", "Shaq", "Mike Trout", "Magic Johnson"];
 
 //Pull's input value from API and turns it into div and img html by using the src
 function displayGifs() {
@@ -14,15 +14,28 @@ function displayGifs() {
               })
               .then(function(response) {
                 var results = response.data;
+                console.log(results)
                 for (var i = 0; i < results.length; i++) {
                     var gifDiv = $("<div>");
                     // var p = $("<p>").text("Rating: " + results[i].rating);
-                    var gifImage = $("<img>");
-                    gifImage.attr("src", results[i].images.fixed_height.url);
-                    // gifDiv.append(p);
+                    var gifImage = $("<img class='img'>");
+                    gifImage.attr("src", results[i].images.fixed_height.url, results[i].images.fixed_height_still.url);
+                    gifImage.attr("data-animate", results[i].images.fixed_height.url);
+                    gifImage.attr("data-still", results[i].images.fixed_height_still.url);
+                    gifImage.attr("data-state", "animated");
                     gifDiv.append(gifImage);
                     $("#gifList").prepend(gifDiv);    
                 }
+                $(".img").on("click", function() {
+                    var state = $(this).attr("data-state");
+                    if (state === "animated") {
+                      $(this).attr("src", $(this).attr("data-still"));
+                      $(this).attr("data-state", "still");
+                    } else {
+                      $(this).attr("src", $(this).attr("data-animate"));
+                      $(this).attr("data-state", "animated");
+                    }
+                  });
 
               });
             }
@@ -44,17 +57,23 @@ function displayGifs() {
             $("#add-person").on("click", function(event){
                 event.preventDefault();
                 var person = $("#person-input").val().trim();
+                // if(people.indexOf(person) == -1) {
+                //     people.push(person);
+                // }
                 people.push(person);
-                $("#person-input").val("");
                 displayNewButton();
+                $("#person-input").val("");
             });
 
     //Display Buttons at refresh of browser and displaying gifs for button click
-    $(document).on("click", ".person", displayGifs)
+    // $(document).on("click", ".person", displayGifs)
         displayNewButton();
-    $("button").on("click", function(){
-        displayNewButton();
-    });
+       
+    $("#button-view").on("click", ".person", displayGifs)
+    
+ 
+        
+    
 
 
 
